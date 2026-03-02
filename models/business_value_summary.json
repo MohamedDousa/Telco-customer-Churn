@@ -1,0 +1,65 @@
+{
+  "assumptions": {
+    "avg_clv_loss_if_churn": 1200.0,
+    "retention_offer_cost": 120.0,
+    "offer_success_rate": 0.35
+  },
+  "kpi": {
+    "test_customers": 1409,
+    "model_threshold_phase34": 0.5405667558105679,
+    "profit_optimal_threshold": 0.5399999999999999,
+    "max_net_profit": 55980.0,
+    "high_risk_customers_at_optimal_threshold": 524,
+    "top_churn_drivers": [
+      "tenure",
+      "InternetService_Fiber optic",
+      "contract_risk_score"
+    ],
+    "top_recommendation_segments": [
+      "New_or_short_tenure",
+      "Other_drivers",
+      "Price_sensitive_customers"
+    ]
+  },
+  "segment_summary": [
+    {
+      "segment": "New_or_short_tenure",
+      "customer_count": 244,
+      "avg_churn_proba": 0.7765326748130073
+    },
+    {
+      "segment": "Other_drivers",
+      "customer_count": 224,
+      "avg_churn_proba": 0.694629900665339
+    },
+    {
+      "segment": "Price_sensitive_customers",
+      "customer_count": 56,
+      "avg_churn_proba": 0.7253082790040015
+    }
+  ],
+  "roi_summary": [
+    {
+      "segment": "New_or_short_tenure",
+      "customers": 244,
+      "avg_churn_proba": 0.7765326748130073,
+      "recommended_action": "First-90-day retention journey and success outreach",
+      "expected_net_value": 50299.06851483698
+    },
+    {
+      "segment": "Other_drivers",
+      "customers": 224,
+      "avg_churn_proba": 0.694629900665339,
+      "recommended_action": "Case-by-case retention outreach",
+      "expected_net_value": 38470.7810545951
+    },
+    {
+      "segment": "Price_sensitive_customers",
+      "customers": 56,
+      "avg_churn_proba": 0.7253082790040015,
+      "recommended_action": "Offer targeted pricing relief or plan right-sizing",
+      "expected_net_value": 10339.250722174114
+    }
+  ],
+  "takeaway": "The model enables profitable retention when intervention targets high-risk customers near the profit-optimal threshold. The strongest churn drivers are contract type, tenure, and pricing-related signals. Segment-specific interventions should prioritize contract migration, support/security onboarding, and pricing-rightsizing for maximum ROI."
+}

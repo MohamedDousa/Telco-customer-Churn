@@ -1,0 +1,4 @@
+segment,customers,avg_churn_proba,recommended_action,expected_net_value
+New_or_short_tenure,244,0.7765326748130073,First-90-day retention journey and success outreach,50299.06851483698
+Other_drivers,224,0.694629900665339,Case-by-case retention outreach,38470.7810545951
+Price_sensitive_customers,56,0.7253082790040015,Offer targeted pricing relief or plan right-sizing,10339.250722174114
