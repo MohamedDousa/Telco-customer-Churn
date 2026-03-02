@@ -1,0 +1,9 @@
+{
+  "best_model":"logistic_regression",
+  "best_strategy":"class_weight_balanced",
+  "cv_f1_mean":0.6284685707,
+  "test_f1_default":0.6230200634,
+  "test_roc_auc":0.8423312408,
+  "test_pr_auc":0.6453530457,
+  "optimal_threshold":0.5405667558
+}
