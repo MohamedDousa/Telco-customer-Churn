@@ -1,0 +1,175 @@
+{
+  "top_features": [
+    "tenure",
+    "InternetService_Fiber optic",
+    "contract_risk_score",
+    "is_new_customer",
+    "Contract_Two year",
+    "PaperlessBilling",
+    "TotalCharges",
+    "charge_per_service",
+    "avg_monthly_charge",
+    "MonthlyCharges",
+    "OnlineSecurity_Yes",
+    "StreamingMovies_Yes",
+    "StreamingTV_Yes",
+    "Contract_One year",
+    "TechSupport_Yes"
+  ],
+  "dependence_features": [
+    "tenure",
+    "MonthlyCharges",
+    "contract_risk_score"
+  ],
+  "instance_ids": {
+    "high_risk_churn": 889,
+    "low_risk_stay": 162,
+    "borderline": 496
+  },
+  "lime_results": {
+    "high_risk_churn": {
+      "index": 889,
+      "pred_proba": 0.9388594613297926,
+      "explanation": [
+        [
+          "Contract_Two year <= 0.00",
+          0.11562075039285984
+        ],
+        [
+          "is_new_customer > 0.00",
+          0.115246180261808
+        ],
+        [
+          "tenure <= -0.43",
+          0.0968485394411481
+        ],
+        [
+          "0.00 < InternetService_Fiber optic <= 1.00",
+          0.09594907471469255
+        ],
+        [
+          "0.00 < contract_risk_score <= 0.67",
+          0.08864707049612047
+        ],
+        [
+          "Contract_One year <= 0.00",
+          0.05957977349479011
+        ],
+        [
+          "charge_per_service > 0.77",
+          0.0595142997510852
+        ],
+        [
+          "0.00 < PaperlessBilling <= 1.00",
+          0.05895979613047426
+        ],
+        [
+          "OnlineSecurity_Yes <= 0.00",
+          0.05754448950973811
+        ],
+        [
+          "TotalCharges <= -0.29",
+          0.05362737446181278
+        ]
+      ]
+    },
+    "low_risk_stay": {
+      "index": 162,
+      "pred_proba": 0.03401250687094125,
+      "explanation": [
+        [
+          "Contract_Two year > 0.00",
+          -0.1160708980028987
+        ],
+        [
+          "is_new_customer <= 0.00",
+          -0.11301517336235659
+        ],
+        [
+          "tenure > 0.57",
+          -0.10532019413112083
+        ],
+        [
+          "InternetService_Fiber optic <= 0.00",
+          -0.0970872142988188
+        ],
+        [
+          "contract_risk_score <= -0.33",
+          -0.0890132114933933
+        ],
+        [
+          "PaperlessBilling <= 0.00",
+          -0.06199156866019122
+        ],
+        [
+          "OnlineSecurity_Yes <= 0.00",
+          0.05875295144539714
+        ],
+        [
+          "Contract_One year <= 0.00",
+          0.05650659868349304
+        ],
+        [
+          "TechSupport_Yes <= 0.00",
+          0.051226998162893465
+        ],
+        [
+          "avg_monthly_charge <= -0.63",
+          -0.0494334698461665
+        ]
+      ]
+    },
+    "borderline": {
+      "index": 496,
+      "pred_proba": 0.5004861010300097,
+      "explanation": [
+        [
+          "Contract_Two year <= 0.00",
+          0.11633691972384572
+        ],
+        [
+          "is_new_customer <= 0.00",
+          -0.1133989769744469
+        ],
+        [
+          "0.00 < InternetService_Fiber optic <= 1.00",
+          0.09952599180878192
+        ],
+        [
+          "0.00 < contract_risk_score <= 0.67",
+          0.08765857031394121
+        ],
+        [
+          "TotalCharges > 0.71",
+          -0.07893857764202872
+        ],
+        [
+          "0.00 < PaperlessBilling <= 1.00",
+          0.06332054936327614
+        ],
+        [
+          "Contract_One year > 0.00",
+          -0.06163733758667457
+        ],
+        [
+          "OnlineSecurity_Yes <= 0.00",
+          0.05712295274943323
+        ],
+        [
+          "TechSupport_Yes <= 0.00",
+          0.05280941260000179
+        ],
+        [
+          "StreamingMovies_Yes <= 0.00",
+          -0.04969184590245578
+        ]
+      ]
+    }
+  },
+  "narrative_points": [
+    "Contract structure is a major churn driver; non-locked contracts carry higher risk.",
+    "Tenure strongly influences churn; shorter-tenure customers are generally riskier.",
+    "Price pressure contributes to churn; higher recurring cost increases churn probability.",
+    "Support/security service patterns are meaningful churn signals."
+  ]
+}
