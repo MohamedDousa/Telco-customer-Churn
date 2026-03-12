@@ -7,7 +7,6 @@ from sklearn.preprocessing import OneHotEncoder, RobustScaler
 
 
 def load_and_clean(csv_path: str) -> pd.DataFrame:
-    """Load raw telco churn data and apply phase-2 base cleaning."""
     df = pd.read_csv(csv_path)
 
     df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
@@ -74,7 +73,7 @@ def encode_multiclass_columns(
     df_test: pd.DataFrame,
     columns: list[str],
 ) -> tuple[pd.DataFrame, pd.DataFrame, OneHotEncoder]:
-    """One-hot encode multiclass columns with train-only fit."""
+    """One-hot encode multiclass columns (fit on train, apply on test)."""
     train_encoded = df_train.copy()
     test_encoded = df_test.copy()
 

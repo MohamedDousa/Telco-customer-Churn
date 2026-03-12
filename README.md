@@ -1,4 +1,4 @@
-# Customer Intelligence Engine - Telco Churn
+# Telco Customer Churn Prediction
 
 This project predicts telecom customer churn and turns model outputs into explainable, business-focused retention recommendations.
 
@@ -17,15 +17,16 @@ This project predicts telecom customer churn and turns model outputs into explai
 - Source: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 - Download helper: `src/data_loader.py`
 - Expected local CSV: `data/WA_Fn-UseC_-Telco-Customer-Churn.csv`
+- License: CC0: Public Domain
 
 ## Pipeline Overview
 
-1. **Phase 0** - Project setup and data acquisition
-2. **Phase 1** - EDA and churn pattern discovery
-3. **Phase 2** - Preprocessing and feature engineering
-4. **Phase 3-4** - Imbalance handling, model training, tuning, and evaluation
-5. **Phase 5** - Explainability with SHAP and LIME
-6. **Phase 6** - Business value analysis, segmentation, and recommendations
+1. Project setup and data acquisition
+2. EDA and churn pattern discovery
+3. Preprocessing and feature engineering
+4. Imbalance handling, model training, tuning, and evaluation
+5. Explainability with SHAP and LIME
+6. Business value analysis, segmentation, and recommendations
 
 ## Run Order
 
@@ -46,25 +47,9 @@ Or execute from terminal:
 
 ## Artifacts
 
-- Processed data:
-  - `data/processed/X_train.csv`
-  - `data/processed/X_test.csv`
-  - `data/processed/y_train.csv`
-  - `data/processed/y_test.csv`
-- Preprocessing artifacts:
-  - `models/binary_mapping.joblib`
-  - `models/multiclass_encoder.joblib`
-  - `models/numeric_scaler.joblib`
-- Modeling and explainability artifacts:
-  - `models/best_model.joblib`
-  - `models/best_threshold.joblib`
-  - `models/model_cv_results.csv`
-  - `models/model_summary.json`
-  - `models/explainability_summary.json`
-- Business outputs:
-  - `models/business_value_summary.json`
-  - `models/profit_curve.csv`
-  - `models/segment_recommendations.csv`
+Processed train/test datasets are written to `data/processed/`, and `models/` stores preprocessing artifacts, trained model files, evaluation summaries, explainability outputs, and business analysis exports.
+
+For safe public sharing, serialized model binaries (`models/*.joblib`) are ignored in git. Recreate them by running the pipeline notebooks in order.
 
 ## Project Structure
 
@@ -85,3 +70,7 @@ Or execute from terminal:
   - `models.py`
   - `explainability.py`
 - `requirements.txt`
+
+## License
+
+This project is released under the MIT License. See `LICENSE`.

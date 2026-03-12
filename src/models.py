@@ -25,7 +25,6 @@ from sklearn.model_selection import StratifiedKFold, cross_validate
 
 
 def load_processed_data(processed_dir: str | Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
-    """Load processed train/test datasets from phase 2 outputs."""
     processed_path = Path(processed_dir)
     x_train = pd.read_csv(processed_path / "X_train.csv")
     x_test = pd.read_csv(processed_path / "X_test.csv")
@@ -35,7 +34,7 @@ def load_processed_data(processed_dir: str | Path) -> tuple[pd.DataFrame, pd.Dat
 
 
 def get_resampling_strategies() -> dict[str, Any]:
-    """Return resampling strategies used in phase 3."""
+    """Set up imbalance handling options used in model comparison."""
     return {
         "baseline": None,
         "smote": SMOTE(random_state=42),
@@ -108,7 +107,6 @@ def cross_validate_model(
 
 
 def evaluate_on_test(model: Any, x_test: pd.DataFrame, y_test: pd.Series) -> dict[str, Any]:
-    """Evaluate fitted model on test data and return structured metrics."""
     y_pred = model.predict(x_test)
     y_proba = model.predict_proba(x_test)[:, 1]
 
@@ -127,7 +125,7 @@ def evaluate_on_test(model: Any, x_test: pd.DataFrame, y_test: pd.Series) -> dic
 
 
 def find_optimal_threshold(model: Any, x_test: pd.DataFrame, y_test: pd.Series) -> float:
-    """Find probability threshold that maximizes F1 score on test set."""
+    """Pick the threshold that gives best F1 on this test fold."""
     y_proba = model.predict_proba(x_test)[:, 1]
     precision, recall, thresholds = precision_recall_curve(y_test, y_proba)
 
@@ -138,7 +136,7 @@ def find_optimal_threshold(model: Any, x_test: pd.DataFrame, y_test: pd.Series) 
 
 
 def get_hyperparam_grid(model_name: str) -> dict[str, Any]:
-    """Return RandomizedSearchCV parameter distributions for each model."""
+    """Parameter grids for quick randomized tuning."""
     grids: dict[str, dict[str, Any]] = {
         "logistic_regression": {
             "C": np.logspace(-3, 2, 30),

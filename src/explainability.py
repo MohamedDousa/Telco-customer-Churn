@@ -17,7 +17,7 @@ def _sample_features(x: pd.DataFrame, max_samples: int = 1000) -> pd.DataFrame:
 
 def compute_shap_values(model: Any, x: pd.DataFrame, max_samples: int = 1000) -> tuple[Any, pd.DataFrame]:
     """
-    Compute SHAP values with model-specific explainers.
+    Compute SHAP values with a model-specific explainer.
 
     Returns:
         shap_values: output from shap explainer
@@ -55,9 +55,7 @@ def explain_with_lime(
     class_names: tuple[str, str] = ("No Churn", "Churn"),
     num_features: int = 10,
 ) -> Any:
-    """
-    Explain a single instance using LIME tabular explainer.
-    """
+    """Run LIME for one row; useful for spot-checking model behavior."""
     explainer = LimeTabularExplainer(
         training_data=x_train.to_numpy(),
         feature_names=feature_names,
@@ -76,7 +74,7 @@ def explain_with_lime(
 
 
 def get_top_shap_features(shap_values: Any, feature_names: list[str], top_n: int = 10) -> list[str]:
-    """Return top features by mean absolute SHAP value."""
+    # Quick global ranking from mean abs SHAP values.
     values = shap_values.values
     if values.ndim == 3:
         values = values[:, :, 1]
