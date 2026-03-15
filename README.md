@@ -7,8 +7,9 @@ This project predicts telecom customer churn and turns model outputs into explai
 1. Create and activate the virtual environment:
    - `python3 -m venv .venv`
    - `source .venv/bin/activate`
-2. Install dependencies:
+2. Install dependencies and the project package:
    - `pip install -r requirements.txt`
+   - `pip install -e .`
 3. Register Jupyter kernel:
    - `python -m ipykernel install --user --name=churn-env --display-name="Churn Project (Python 3.11)"`
 
@@ -38,18 +39,25 @@ Execute notebooks in this order:
 4. `notebooks/04_explainability.ipynb`
 5. `notebooks/05_business_value.ipynb`
 
-Or execute from terminal:
+Or run the entire pipeline with a single command:
 
-- `jupyter nbconvert --to notebook --execute --inplace "notebooks/02_preprocessing_feature_engineering.ipynb"`
-- `jupyter nbconvert --to notebook --execute --inplace "notebooks/03_modeling.ipynb"`
-- `jupyter nbconvert --to notebook --execute --inplace "notebooks/04_explainability.ipynb"`
-- `jupyter nbconvert --to notebook --execute --inplace "notebooks/05_business_value.ipynb"`
+- `bash run_pipeline.sh`
+
+## Configuration
+
+Business cost assumptions (CLV, offer cost, success rate) live in `config.yaml`. Edit that file to adjust the profit curve and ROI analysis without touching notebook code.
+
+## Running Tests
+
+```bash
+pytest
+```
 
 ## Artifacts
 
 Processed train/test datasets are written to `data/processed/`, and `models/` stores preprocessing artifacts, trained model files, evaluation summaries, explainability outputs, and business analysis exports.
 
-For safe public sharing, serialized model binaries (`models/*.joblib`) are ignored in git. Recreate them by running the pipeline notebooks in order.
+For safe public sharing, all model artifacts (`models/*.joblib`, `models/*.json`, `models/*.csv`) are ignored in git — they are regenerable outputs. Recreate them by running the pipeline notebooks in order.
 
 ## Project Structure
 
@@ -69,6 +77,12 @@ For safe public sharing, serialized model binaries (`models/*.joblib`) are ignor
   - `feature_engineering.py`
   - `models.py`
   - `explainability.py`
+- `tests/`
+  - `test_preprocessing.py`
+  - `test_feature_engineering.py`
+- `config.yaml`
+- `run_pipeline.sh`
+- `pyproject.toml`
 - `requirements.txt`
 
 ## License

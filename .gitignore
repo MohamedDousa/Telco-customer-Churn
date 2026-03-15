@@ -1,6 +1,40 @@
+# Virtual environment
 .venv/
+
+# Raw and processed data (may contain PII)
 data/
+
+# Python cache
 __pycache__/
+*.pyc
+*.pyo
+
+# macOS
 .DS_Store
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Serialised model artifacts (regenerable)
 models/*.joblib
+models/*.json
+models/*.csv
+
+# Build / packaging artifacts
+*.egg-info/
+dist/
+build/
+
+# Test cache
+.pytest_cache/
+
+# Environment files (secrets / API keys)
+.env
+.env.*
+
+# IDE directories
+.idea/
+.vscode/
+
+# Log files
+*.log

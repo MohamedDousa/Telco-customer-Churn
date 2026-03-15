@@ -1,0 +1,42 @@
+[project]
+name = "telco-churn"
+version = "0.1.0"
+description = "End-to-end Telco customer churn prediction pipeline with SHAP/LIME explainability and business value analysis."
+authors = [{ name = "The project contributors" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "scikit-learn>=1.5",
+    "matplotlib>=3.9",
+    "seaborn>=0.13",
+    "shap>=0.46",
+    "lightgbm>=4.5",
+    "lime>=0.2",
+    "imbalanced-learn>=0.12",
+    "joblib>=1.4",
+    "pyyaml>=6.0",
+    "kagglehub>=0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyterlab>=4.3",
+    "ipykernel>=6.29",
+    "pytest>=8.3",
+    "numba>=0.59",
+    "llvmlite>=0.42",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

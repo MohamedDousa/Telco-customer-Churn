@@ -1,0 +1,11 @@
+# Business assumptions used in the profit curve and ROI analysis (notebook 05).
+# Edit these values to adjust the cost-benefit analysis without touching notebook code.
+business:
+  # Estimated revenue lost per churned customer over their lifetime.
+  avg_clv_loss_if_churn: 1200.0
+
+  # Cost of a single retention offer (discount, free upgrade, outreach, etc.).
+  retention_offer_cost: 120.0
+
+  # Fraction of at-risk customers who accept the offer and are successfully retained.
+  offer_success_rate: 0.35
